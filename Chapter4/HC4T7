@@ -1,1 +1,15 @@
+module Main where
+
+whatsInsideThisList :: [a] -> String
+whatsInsideThisList []        = "The list is empty."
+whatsInsideThisList [x]       = "The list has one element."
+whatsInsideThisList [x, y]    = "The list has two elements."
+whatsInsideThisList (x:y:z:_) = "The list has three or more elements."
+
+main :: IO ()
+main = do
+  putStrLn (whatsInsideThisList ([] :: [Int]))
+  putStrLn (whatsInsideThisList [5])
+  putStrLn (whatsInsideThisList [1, 2])
+  putStrLn (whatsInsideThisList [1, 2, 3, 4, 5])
 
