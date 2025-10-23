@@ -1,1 +1,13 @@
+-- Main.hs
+module Main where
+
+-- Define the function
+describeTuple :: (String, Int) -> String
+describeTuple (name, age) = name ++ " is " ++ show age ++ " years old."
+
+-- Main to test it
+main :: IO ()
+main = do
+  putStrLn (describeTuple ("Alice", 30))  -- Output: Alice is 30 years old.
+  putStrLn (describeTuple ("Bob", 25))    -- Output: Bob is 25 years old.
 
