@@ -1,1 +1,18 @@
+-- Main.hs
+module Main where
+
+-- Define the function
+whatsInsideThisList :: [a] -> String
+whatsInsideThisList []        = "The list is empty."
+whatsInsideThisList [x]       = "The list has one element."
+whatsInsideThisList [x, y]    = "The list has two elements."
+whatsInsideThisList (x:y:z:_) = "The list has three or more elements."
+
+-- Main function to test it
+main :: IO ()
+main = do
+  print (whatsInsideThisList ([] :: [Int]))        -- Output: The list is empty.
+  print (whatsInsideThisList [5])                  -- Output: The list has one element.
+  print (whatsInsideThisList [1, 2])               -- Output: The list has two elements.
+  print (whatsInsideThisList [1, 2, 3, 4, 5])      -- Output: The list has three or more elements.
 
