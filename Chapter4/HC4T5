@@ -1,1 +1,20 @@
+-- Main.hs
+module Main where
+
+-- Define the function first
+specialBirthday :: Int -> String
+specialBirthday 1   = "First birthday! Happy 1st!"
+specialBirthday 16  = "Sweet sixteen!"
+specialBirthday 18  = "Finally an adult!"
+specialBirthday 21  = "Cheers to 21!"
+specialBirthday 50  = "Half a century old!"
+specialBirthday 100 = "A century! Amazing!"
+specialBirthday age = "Happy " ++ show age ++ "th birthday!"
+
+-- Then define main
+main :: IO ()
+main = do
+  putStrLn (specialBirthday 1)    -- Output: First birthday! Happy 1st!
+  putStrLn (specialBirthday 21)   -- Output: Cheers to 21!
+  putStrLn (specialBirthday 42)   -- Output: Happy 42th birthday!
 
