@@ -1,0 +1,6 @@
+-- HC6T3: Sum of Elements Using foldr
+sumList :: Num a => [a] -> a
+sumList = foldr (+) 0
+
+main :: IO ()
+main = print $ sumList [1,2,3,4,5]    -- 15
