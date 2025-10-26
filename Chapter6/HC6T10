@@ -1,0 +1,7 @@
+-- HC6T10: Digits of a Number (Recursive)
+digits :: Int -> [Int]
+digits 0 = []
+digits n = digits (n `div` 10) ++ [n `mod` 10]
+
+main :: IO ()
+main = print $ digits 12345    -- [1,2,3,4,5]
