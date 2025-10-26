@@ -1,0 +1,8 @@
+applyThrice :: (a -> a) -> a -> a
+applyThrice f x = f (f (f x))
+
+double :: Int -> Int
+double x = x * 2
+
+main :: IO ()
+main = print (applyThrice double 2)
