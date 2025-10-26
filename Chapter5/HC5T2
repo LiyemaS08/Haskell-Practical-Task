@@ -1,0 +1,8 @@
+-- HC5T2: Filtering Odd Numbers
+-- Use the filter function to extract all odd numbers from a given list of integers from 1 to 30.
+
+oddNumbers :: [Int]
+oddNumbers = filter odd [1..30]
+
+main :: IO ()
+main = print oddNumbers
