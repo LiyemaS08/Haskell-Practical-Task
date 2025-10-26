@@ -1,0 +1,12 @@
+-- HC6T2: Fibonacci (Recursive)
+fibonacci :: (Eq a, Num a, Num b) => a -> b
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+
+main :: IO ()
+main = do
+  print $ fibonacci 0    -- 0
+  print $ fibonacci 1    -- 1
+  print $ fibonacci 5    -- 5
+  print $ fibonacci 10   -- 55
