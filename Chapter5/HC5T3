@@ -1,0 +1,14 @@
+import Data.Char (isUpper)
+
+-- HC5T3: Checking for Uppercase Letters
+-- Write a function using 'any' that checks if a list of words
+-- contains any word that starts with an uppercase letter.
+
+hasUppercaseWord :: [String] -> Bool
+hasUppercaseWord words = any (\w -> not (null w) && isUpper (head w)) words
+
+main :: IO ()
+main = do
+  print $ hasUppercaseWord ["hello", "world"]     -- False
+  print $ hasUppercaseWord ["hello", "World"]     -- True
+  print $ hasUppercaseWord ["Haskell", "rocks!"]  -- True
