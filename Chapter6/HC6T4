@@ -1,0 +1,6 @@
+-- HC6T4: Product of Elements Using foldl
+productList :: Num a => [a] -> a
+productList = foldl (*) 1
+
+main :: IO ()
+main = print $ productList [1,2,3,4,5]    -- 120
