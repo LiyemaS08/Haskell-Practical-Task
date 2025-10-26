@@ -1,0 +1,9 @@
+-- HC6T6: Element Exists in List
+elementExists :: Eq a => a -> [a] -> Bool
+elementExists _ [] = False
+elementExists y (x:xs) = (x == y) || elementExists y xs
+
+main :: IO ()
+main = do
+  print $ elementExists 3 [1,2,3,4]   -- True
+  print $ elementExists 5 [1,2,3,4]   -- False
