@@ -1,0 +1,9 @@
+-- HC5T8: Point-Free Style
+-- Original: addFive x = x + 5
+
+addFive :: Num a => a -> a
+addFive = (+ 5)
+
+main :: IO ()
+main = do
+  print $ addFive 10    --
