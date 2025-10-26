@@ -1,0 +1,11 @@
+-- HC5T5: Partial Application
+-- Create a function multiplyByFive using partial application
+
+multiplyByFive :: Num a => a -> a
+multiplyByFive = (*) 5
+
+main :: IO ()
+main = do
+  print $ multiplyByFive 2    -- 10
+  print $ multiplyByFive 7    -- 35
+  print $ multiplyByFive 0    -- 0
