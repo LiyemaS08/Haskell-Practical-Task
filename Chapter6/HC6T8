@@ -1,0 +1,6 @@
+-- HC6T8: Filter Even Numbers
+filterEven :: [Int] -> [Int]
+filterEven = filter even
+
+main :: IO ()
+main = print $ filterEven [1..10]    -- [2,4,6,8,10]
