@@ -1,0 +1,10 @@
+-- HC5T9: Higher-Order Function to Transform a List
+-- Applies a given function twice to every element of a list
+
+transformList :: (a -> a) -> [a] -> [a]
+transformList f = map (f . f)
+
+main :: IO ()
+main = do
+  print $ transformList (+1) [1,2,3]    -- [3,4,5]
+  print $ transformList (*2) [1,2,3]    -- [4,8,12]
