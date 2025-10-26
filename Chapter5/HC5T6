@@ -1,0 +1,11 @@
+-- HC5T6: Function Composition
+-- Create a function that takes a list of numbers and returns
+-- their squares, keeping only the even ones.
+
+evenSquares :: [Int] -> [Int]
+evenSquares = filter even . map (^2)
+
+main :: IO ()
+main = do
+  print $ evenSquares [1..10]    -- [4,16,36,64,100]
+  print $ evenSquares [5,6,7]    -- [36]
