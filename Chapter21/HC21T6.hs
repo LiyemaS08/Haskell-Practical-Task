@@ -1,10 +1,39 @@
 module Main where
 
-import Control.Monad (forever)
+-- Reader definition
+newtype Reader r a = Reader { runReader :: r -> a }
 
-repeatEffect :: IO () -> IO ()
-repeatEffect action = forever action
+-- Functor, Applicative, Monad instances
+instance Functor (Reader r) where
+  fmap f (Reader g) = Reader (f . g)
+
+instance Applicative (Reader r) where
+  pure a = Reader (\_ -> a)
+  Reader f <*> Reader g = Reader (\r -> f r (g r))
+
+instance Monad (Reader r) where
+  return = pure
+  Reader g >>= f = Reader (\r -> runReader (f (g r)) r)
+
+-- Config type
+data Config = Config { prefix :: String, suffix :: String }
+
+-- Two Reader actions using same environment
+hello :: Reader Config String
+hello = do
+  cfg <- Reader id
+  return (prefix cfg ++ " world" ++ suffix cfg)
+
+goodbye :: Reader Config String
+goodbye = do
+  cfg <- Reader id
+  return (prefix cfg ++ " goodbye" ++ suffix cfg)
+
+composeDemo :: Reader Config String
+composeDemo = do
+  a <- hello
+  b <- goodbye
+  return (a ++ " | " ++ b)
 
 main :: IO ()
-main = repeatEffect (putStrLn "Repeating forever...")  -- Ctrl+C to stop
-
+main = print (runReader composeDemo (Config "<<" ">>"))
