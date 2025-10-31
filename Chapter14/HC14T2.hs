@@ -1,8 +1,18 @@
--- HC14T2
-import System.Random
+-- Main.hs
+
+-- Import must be at the top
+import Data.Time.Clock.POSIX (getPOSIXTime)
 
 main :: IO ()
 main = do
-    num <- randomRIO (1,100) :: IO Int
-    putStrLn ("Random number: " ++ show num)
+    -- Fake a random number between 1 and 100
+    fakeRandom <- getFakeRandom
+    putStrLn $ "Random number: " ++ show fakeRandom
 
+-- Helper function to generate a pseudo-random number
+getFakeRandom :: IO Int
+getFakeRandom = do
+    -- Use system time to simulate randomness
+    time <- fmap round getPOSIXTime
+    let num = (time `mod` 100) + 1
+    return num
