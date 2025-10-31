@@ -1,6 +1,11 @@
--- HC13T7 - Use Custom Module
-import SumNonEmpty
+-- Main.hs
+
+-- sumNonEmpty function (replaces external module)
+sumNonEmpty :: Num a => [a] -> a
+sumNonEmpty [] = error "sumNonEmpty: empty list"
+sumNonEmpty xs = sum xs
 
 main :: IO ()
-main = print (sumNonEmpty [10, 20, 30])
-
+main = do
+    let numbers = [5, 10, 15]
+    putStrLn $ "The sum of the list is: " ++ show (sumNonEmpty numbers)
