@@ -1,8 +1,17 @@
-module Main where
+-- HC19T2.hs
 
+-- Function to add three Maybe Int values using applicative style
 addThreeApplicative :: Maybe Int -> Maybe Int -> Maybe Int -> Maybe Int
-addThreeApplicative a b c = (\x y z -> x + y + z) <$> a <*> b <*> c
+addThreeApplicative mx my mz =
+    pure (\x y z -> x + y + z) <*> mx <*> my <*> mz
 
+-- Main function to test addThreeApplicative
 main :: IO ()
-main = print (addThreeApplicative (Just 2) (Just 3) (Just 4))
+main = do
+    let a = Just 1
+    let b = Just 2
+    let c = Just 3
+    let d = Nothing
 
+    print $ addThreeApplicative a b c    -- Should print: Just 6
+    print $ addThreeApplicative a b d    -- Should print: Nothing
